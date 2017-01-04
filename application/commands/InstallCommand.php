@@ -133,14 +133,16 @@
          */
         function getDBConnectionStringProperty($sProperty, $connectionString = null)
         {
-            if (!isset($connectionString))
-            {
-                $connectionString = $this->connection->connectionString;
-            }
-            // Yii doesn't give us a good way to get the database name
-            if ( preg_match('/'.$sProperty.'=([^;]*)/', $connectionString, $aMatches) == 1 ) {
-                return $aMatches[1];
-            }
+//            if (!isset($connectionString))
+//            {
+//                $connectionString = $this->connection->connectionString;
+//            }
+//            // Yii doesn't give us a good way to get the database name
+//            if ( preg_match('/'.$sProperty.'=([^;]*)/', $connectionString, $aMatches) == 1 ) {
+//                return $aMatches[1];
+//            }
+            return getenv('MYSQLCONNSTR_localdb');
+
         }
 
 
